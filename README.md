@@ -7,7 +7,7 @@ Sin gamificación forzada. Sin desbloqueos. Sin vidas. El usuario estudia lo que
 
 ---
 
-## ⚡ Instalación rápida (XAMPP)
+##  Instalación rápida con X AMPP
 
 ### Requisitos
 - [XAMPP](https://www.apachefriends.org/) con **Apache** + **PHP 8.0+**
@@ -19,10 +19,9 @@ Sin gamificación forzada. Sin desbloqueos. Sin vidas. El usuario estudia lo que
 ```
 1. Descomprime el ZIP en:
    Windows → C:\xampp\htdocs\jlpt\
-   macOS   → /Applications/XAMPP/htdocs/jlpt/
    Linux   → /opt/lampp/htdocs/jlpt/
 
-2. Inicia XAMPP → Arranca Apache
+2. Inicia XAMPP → Arrancamos Apache
 
 3. Abre en el navegador:
    http://localhost/jlpt/setup.php
@@ -32,12 +31,12 @@ Sin gamificación forzada. Sin desbloqueos. Sin vidas. El usuario estudia lo que
    http://localhost/jlpt/
 ```
 
-> ⚠️ `setup.php` solo es accesible desde `localhost` por seguridad.  
+>  `setup.php` solo es accesible desde `localhost` por seguridad.  
 > Si necesitas ejecutarlo desde otra máquina, edita `.htaccess` temporalmente.
 
 ---
 
-## 📁 Estructura del proyecto
+##  Estructura del proyecto para iniciar
 
 ```
 jlpt/
@@ -86,7 +85,7 @@ jlpt/
 
 ---
 
-## 🗄️ Esquema de base de datos
+##  Esquema de base de datos
 
 | Tabla               | Descripción                                      |
 |---------------------|--------------------------------------------------|
@@ -106,7 +105,7 @@ jlpt/
 
 ---
 
-## 🧠 Algoritmo SRS (SM-2)
+##  Algoritmo SRS
 
 El sistema usa una versión simplificada del algoritmo **SuperMemo 2**:
 
@@ -121,7 +120,7 @@ El `ease_factor` empieza en **2.5** y se ajusta tras cada revisión (mínimo 1.3
 
 ---
 
-## 🔗 Rutas SPA
+##  Rutas SPA
 
 ```
 #/                    → Inicio (selector de módulo y nivel)
@@ -146,7 +145,7 @@ El `ease_factor` empieza en **2.5** y se ajusta tras cada revisión (mínimo 1.3
 
 ---
 
-## 📡 API Endpoints (PHP)
+##  API Endpoints PHP
 
 Todos devuelven `{ ok: true, data: {...} }` o `{ ok: false, error: "..." }`.
 
@@ -190,7 +189,7 @@ Todos devuelven `{ ok: true, data: {...} }` o `{ ok: false, error: "..." }`.
 
 ---
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
 ### Módulo Vocabulario
 - **Vista Lista**: tabla paginada con búsqueda y filtros
@@ -235,7 +234,7 @@ Todos devuelven `{ ok: true, data: {...} }` o `{ ok: false, error: "..." }`.
 
 ### Dashboard
 - Progreso por nivel (N5–N1) con barras de avance
-- Racha de días consecutivos de estudio 🔥
+- Racha de días consecutivos de estudio 
 - Últimos exámenes con puntuación
 - Estadísticas SRS globales
 - Gráfico de actividad últimos 7 días
@@ -252,7 +251,7 @@ Todos devuelven `{ ok: true, data: {...} }` o `{ ok: false, error: "..." }`.
 
 ---
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 | Capa      | Tecnología                                      |
 |-----------|-------------------------------------------------|
@@ -266,7 +265,7 @@ Todos devuelven `{ ok: true, data: {...} }` o `{ ok: false, error: "..." }`.
 
 ---
 
-## 📊 Datos de ejemplo incluidos
+##  Datos de ejemplo incluidos
 
 | Contenido           | N5 | N4 | N3 | N2 | N1 | Total |
 |---------------------|----|----|----|----|-----|-------|
@@ -278,7 +277,7 @@ Todos devuelven `{ ok: true, data: {...} }` o `{ ok: false, error: "..." }`.
 
 ---
 
-## 🔧 Añadir contenido propio
+##  Añadir contenido propio
 
 ### Vocabulario
 ```sql
@@ -316,7 +315,7 @@ INSERT INTO exam_options (question_id, option_text, option_label) VALUES
 
 ---
 
-## 🐛 Solución de problemas
+##  Solucion de problemas
 
 | Problema | Solución |
 |----------|----------|
@@ -329,10 +328,10 @@ INSERT INTO exam_options (question_id, option_text, option_label) VALUES
 
 ---
 
-## 📜 Licencia
+##  Licencias 
 
 MIT — Libre para uso personal y educativo.
 
 ---
 
-*JLPT Master — Construido con HTML, CSS, JavaScript y PHP puros. Sin dependencias externas.*
+*JLPT Master — Construido con HTML, CSS, JavaScript y PHP puros. Sin dependencias externas. por ahora * 
