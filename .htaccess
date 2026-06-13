@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────
+# JLPT Master — Apache Configuration
+# Compatible with XAMPP (Apache 2.4+)
+# ─────────────────────────────────────────────
+
+Options -Indexes
+
+# ── Encoding ─────────────────────────────────
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .json .php
+
+# ── MIME types ───────────────────────────────
+AddType application/javascript .js
+AddType text/css               .css
+AddType application/json       .json
+
+# ── Security headers ─────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "same-origin"
+
+    # Block direct access to database file
+    <FilesMatch "\.db$|\.sql$|\.gitkeep$">
+        Header set X-Robots-Tag "noindex"
+    </FilesMatch>
+</IfModule>
+
+# ── Protect sensitive files ───────────────────
+<FilesMatch "\.db$|\.sql$|\.gitkeep$|^setup\.php$">
+    # Comment the next 2 lines if you need setup.php from a remote host
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from localhost
+</FilesMatch>
+
+# ── Browser caching ───────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css             "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/svg+xml        "access plus 1 month"
+    ExpiresByType image/png            "access plus 1 month"
+    ExpiresByType image/jpeg           "access plus 1 month"
+    ExpiresByType text/html            "access plus 0 seconds"
+    ExpiresByType application/json     "access plus 0 seconds"
+</IfModule>
+
+# ── Compression ───────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json text/plain
+</IfModule>
+
+# ── PHP settings (XAMPP) ─────────────────────
+<IfModule mod_php.c>
+    php_value default_charset UTF-8
+    php_flag display_errors Off
+    php_value error_reporting 0
+</IfModule>
+<IfModule mod_php8.c>
+    php_value default_charset UTF-8
+    php_flag display_errors Off
+    php_value error_reporting 0
+</IfModule>

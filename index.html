@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JLPT Master — N5 → N1</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- ─── SIDEBAR ──────────────────────────────────────────────── -->
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-logo">
+    <span class="logo-kanji">日</span>
+    <div class="logo-text">
+      <strong>JLPT Master</strong>
+      <small>N5 → N1</small>
+    </div>
+    <button id="sidebar-close" class="sidebar-close" aria-label="Cerrar menú">✕</button>
+  </div>
+
+  <ul class="nav-list">
+    <li><a href="#/" class="nav-link" data-route="home">
+      <span class="nav-icon">🏠</span><span class="nav-label">Inicio</span>
+    </a></li>
+    <li><a href="#/dashboard" class="nav-link" data-route="dashboard">
+      <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
+    </a></li>
+    <li class="nav-divider"><span>Estudio</span></li>
+    <li><a href="#/vocabulary" class="nav-link" data-route="vocabulary">
+      <span class="nav-icon">📖</span><span class="nav-label">Vocabulario</span>
+    </a></li>
+    <li><a href="#/grammar" class="nav-link" data-route="grammar">
+      <span class="nav-icon">📝</span><span class="nav-label">Gramática</span>
+    </a></li>
+    <li><a href="#/kanji" class="nav-link" data-route="kanji">
+      <span class="nav-icon">漢</span><span class="nav-label">Kanji</span>
+    </a></li>
+    <li><a href="#/theory" class="nav-link" data-route="theory">
+      <span class="nav-icon">📚</span><span class="nav-label">Teoría</span>
+    </a></li>
+    <li class="nav-divider"><span>Práctica</span></li>
+    <li><a href="#/exams" class="nav-link" data-route="exams">
+      <span class="nav-icon">📋</span><span class="nav-label">Simulacros</span>
+    </a></li>
+    <li><a href="#/srs" class="nav-link" data-route="srs">
+      <span class="nav-icon">🔄</span>
+      <span class="nav-label">Repaso SRS</span>
+      <span id="srs-badge" class="badge" style="display:none">0</span>
+    </a></li>
+    <li><a href="#/intensive" class="nav-link" data-route="intensive">
+      <span class="nav-icon">🎯</span><span class="nav-label">Preparación Intensiva</span>
+    </a></li>
+    <li class="nav-divider"><span>Personal</span></li>
+    <li><a href="#/favorites" class="nav-link" data-route="favorites">
+      <span class="nav-icon">⭐</span><span class="nav-label">Favoritos</span>
+    </a></li>
+    <li><a href="#/settings" class="nav-link" data-route="settings">
+      <span class="nav-icon">⚙️</span><span class="nav-label">Configuración</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <div id="srs-mini" class="srs-mini" style="display:none">
+      <span id="srs-due-count">0</span> tarjetas pendientes
+      <a href="#/srs">Repasar →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── OVERLAY (mobile) ─────────────────────────────────────── -->
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+<!-- ─── MAIN LAYOUT ──────────────────────────────────────────── -->
+<div class="app-layout">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="topbar-title" id="topbar-title">JLPT Master</div>
+    <div class="topbar-actions">
+      <!-- Level quick-select -->
+      <div class="level-pills" id="level-pills">
+        <button class="level-pill n5" data-level="N5">N5</button>
+        <button class="level-pill n4" data-level="N4">N4</button>
+        <button class="level-pill n3" data-level="N3">N3</button>
+        <button class="level-pill n2" data-level="N2">N2</button>
+        <button class="level-pill n1" data-level="N1">N1</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content" class="main-content">
+    <!-- Views are rendered here by JavaScript -->
+    <div id="view-loading" class="view-loading" style="display:none">
+      <div class="spinner"></div>
+      <p>Cargando…</p>
+    </div>
+  </main>
+
+</div><!-- /.app-layout -->
+
+<!-- ─── TOAST NOTIFICATIONS ──────────────────────────────────── -->
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<!-- ─── MODAL ────────────────────────────────────────────────── -->
+<div id="modal-overlay" class="modal-overlay" style="display:none">
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <h3 id="modal-title"></h3>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ─── SCRIPTS (ES6 modules) ────────────────────────────────── -->
+<script type="module" src="assets/js/app.js"></script>
+
+</body>
+</html>
